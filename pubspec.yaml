@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  bloc:
+  flutter_bloc:
+  provider:
   flutter:
     sdk: flutter
 
