@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'diceapp.bloc.rolldice.dart';
+import 'bloc/diceapp.bloc.rolldice.dart';
 import 'diceapp.provider.page.dart';
 
 
 void main() {
-  runApp(DiceAppProvider());
+  runApp(DiceAppBloc());
 }
 
 ///      Provider part
@@ -30,15 +30,18 @@ class DiceAppProvider extends StatelessWidget {
   }
 }
 
+
 ///////////////// Bloc part
 
 
-class DiceApp extends StatelessWidget {
+class DiceAppBloc extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context)=>RollDiceBloc([1, 5, 3, 4, 5, 6]))
+        BlocProvider(create: (context)=>RollDiceBloc(
+            initialState: DiceAppStateBloc()),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
